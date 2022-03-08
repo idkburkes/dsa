@@ -40,36 +40,49 @@ We will accomplish this by iterating from the start of the array all the way to 
 - [p] - pivot
 - | - wall that represents the partition
 
-Initial State 
+Initial State
+
 |[i]------------------------[p]
+
 ```[8, 4, 23, 42, 16, 15]```
+
 Wall starts at index -1, current index is 0, and we decided that the last number (15 at index 5) would be the pivot.
 
 Iteration 1
 In the first iteration we evaluate 8 to be less than 15. This means we'll swap the number at index i with the number directly after the wall at index 0 then increment the index of the wall. In this case the index i and the position of the wall are the same so there is no swap, but we still increment the index of the wall.
+
 ----|-[i]--------------------[p]
+
 ```[8, 4, 23, 42, 16, 15]```
 
 
 Iteration 2
 In the second iteration we evaluate 4 to be less than 15. At this point we swap the number at index i with the number directly afer the wall at index 1. In this case the index i and the position of the wall are the same so there is no swap. Since 4 is less than 15 we increment to position of the wall again.
+
 ---------|-[i]---------------[p]
+
 ```[8, 4, 23, 42, 16, 15]```
 
 
 Iteration 3
 In the third iteration we find that 23 is greather than 15 so there is no swap and no increment of the wall, we just move index i forward.
+
 ---------|-------[i]---------[p]
+
 ```[8, 4, 23, 42, 16, 15]```
 
 Iteration 4
 In the fourth iteration we find that 42 is greater than 15 so there is no swap and no increment of the wall, we just move index i forward.
+
 ---------|-------------[i]---[p]
+
 ```[8, 4, 23, 42, 16, 15]```
 
 Iteration 5
 In the fifth iteration we find that 16 is greater than 15 so there is no swap and no increment of the wall, we just move index i forward.
+
 ---------|------------------[ip]
+
 ```[8, 4, 23, 42, 16, 15]```
 
 Iteration 6
@@ -80,7 +93,9 @@ In the sixth iteration index i is at the same location as the pivot. This is our
 Divide and conquer
 
 After 15 is moved to the correct position we can perform the same partitioning process on the left and right side of the arrays, essentially performing the inductive step on 2 subarrays.
+
 [left]------[sorted]---------[right]
+
 [8, 4] ------- [15] ------- [42, 16, 23]
 
 After doing all these steps recursively the entire array will become sorted
