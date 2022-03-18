@@ -6,7 +6,7 @@ from code_challenges.trees.trees import BinaryTree
 def tree_intersection(tree1: BinaryTree, tree2: BinaryTree) -> set:    
     if tree1.root is None or tree2.root is None:
         # There is no intersection if either tree is empty
-        return {}
+        return set()
 
     hashtable = HashTable()
     intersection = set()

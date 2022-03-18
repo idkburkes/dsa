@@ -12,12 +12,19 @@ def test_tree_intersection(tree_populated1, tree_populated2):
     diff = actual.difference(expected)
     assert len(diff) == 0
 
+def test_no_common_values_returns_no_intersection(tree_populated1):
+
+    tree_with_no_common_nodes = BinaryTree()
+    tree_with_no_common_nodes.root = Node(999)
+    actual = tree_intersection(tree_populated1, tree_with_no_common_nodes)
+    expected = set() #empty set
+    assert actual == expected
 
 def test_empty_tree(tree_populated1):
 
     empty_tree = BinaryTree()
     actual = tree_intersection(tree_populated1, empty_tree)
-    expected = {}
+    expected = set() #empty set
     assert actual == expected
 
 
