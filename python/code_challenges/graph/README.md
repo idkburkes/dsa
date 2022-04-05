@@ -30,6 +30,10 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 - Arguments: none
 - Returns the total number of nodes in the graph
 
+```breadth_first()```
+- Arguments: Node
+- Return: A collection of nodes in the order they were visited using BFS traversal.
+
 
 ## Structure and Testing
 
