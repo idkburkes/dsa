@@ -1,3 +1,4 @@
+from re import L
 import pytest
 from code_challenges.graph.graph import Graph
 
@@ -83,3 +84,44 @@ def test_empty_graph_returns_null():
 
     assert graph.get_nodes() == None
     assert graph.get_neighbors(1) == None
+
+def test_breadth_first(sample_graph):
+    expected = ['pandora', 'arendelle', 'metroville', 'monstropolis', 'naboo', 'narnia']
+    actual = sample_graph.breadth_first('pandora')
+    assert expected == actual 
+
+def test_bfs_empty_graph():
+    empty_graph = Graph()
+    actual = empty_graph.breadth_first()
+    expected = []
+    assert actual == expected
+
+
+
+
+@pytest.fixture
+def sample_graph():
+    graph = Graph()
+
+    #Pandora, Arendelle, Metroville, Monstroplolis, Narnia, Naboo
+    graph.add_node('pandora')
+    graph.add_node('arendelle')
+    graph.add_node('metroville')
+    graph.add_node('monstropolis')
+    graph.add_node('narnia')
+    graph.add_node('naboo')
+
+    graph.add_edge('pandora', 'arendelle')
+    graph.add_edge('arendelle', 'metroville')
+    graph.add_edge('arendelle', 'monstropolis')
+    graph.add_edge('metroville', 'monstropolis')
+    graph.add_edge('metroville', 'naboo')
+    graph.add_edge('metroville', 'narnia')
+    graph.add_edge('monstropolis', 'naboo')
+    graph.add_edge('naboo', 'narnia')
+    
+    return graph
+
+
+
+
