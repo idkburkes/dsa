@@ -47,6 +47,24 @@ class Graph:
     def size(self):
         return len(self.nodes)
 
+    def breadth_first(self, node=None):
+        if not node: return []
+        res = []
+        seen = {node}
+        queue = [node]
+
+        while queue:
+            node = queue.pop(0)
+            res.append(node)
+
+            for neighbor in sorted(self.nodes[node]):
+                if neighbor not in seen:
+                    queue.append(neighbor)
+                    seen.add(neighbor)
+        
+        return res
+
+
     def __str__(self):
         for node, neighbors in self.nodes:
             if neighbors:
