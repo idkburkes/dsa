@@ -96,6 +96,34 @@ def test_bfs_empty_graph():
     expected = []
     assert actual == expected
 
+def test_business_trip_2_cities(weighted_graph):
+    cities = ['metroville', 'pandora']
+    actual = weighted_graph.business_trip(cities)
+    expected = 82
+    assert actual == expected
+
+def test_business_trip_3_cities(weighted_graph):
+    cities = ['arendelle', 'monstropolis', 'naboo']
+    actual = weighted_graph.business_trip(cities)
+    expected = 115
+    assert actual == expected
+
+def test_business_trip_2_cities_trip_not_possible(weighted_graph):
+    cities = ['naboo', 'pandora']
+    actual = weighted_graph.business_trip(cities)
+    expected = None
+    assert actual == expected
+
+def test_business_trip_3_cities_trip_not_possible(weighted_graph):
+    cities = ['narnia', 'arendelle', 'naboo']
+    actual = weighted_graph.business_trip(cities)
+    expected = None
+    assert actual == expected
+
+
+
+
+
 
 
 
@@ -121,6 +149,33 @@ def sample_graph():
     graph.add_edge('naboo', 'narnia')
     
     return graph
+
+@pytest.fixture
+def weighted_graph():
+    graph = Graph()
+
+    #Pandora, Arendelle, Metroville, Monstroplolis, Narnia, Naboo
+    graph.add_node('pandora')
+    graph.add_node('arendelle')
+    graph.add_node('metroville')
+    graph.add_node('monstropolis')
+    graph.add_node('narnia')
+    graph.add_node('naboo')
+
+    graph.add_edge('pandora', 'arendelle', 150)
+    graph.add_edge('pandora', 'metroville', 82)
+    graph.add_edge('arendelle', 'metroville', 99)
+    graph.add_edge('arendelle', 'monstropolis', 42)
+    graph.add_edge('metroville', 'monstropolis', 105)
+    graph.add_edge('metroville', 'naboo', 26)
+    graph.add_edge('metroville', 'narnia', 37)
+    graph.add_edge('monstropolis', 'naboo', 73)
+    graph.add_edge('naboo', 'narnia', 250)
+
+    return graph
+
+
+    
 
 
 
