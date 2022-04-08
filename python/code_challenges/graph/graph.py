@@ -63,6 +63,21 @@ class Graph:
                     seen.add(neighbor)
         
         return res
+    
+    def business_trip(self, cities):
+        if not cities: return None
+        
+        cost = 0
+
+        for i in range(len(cities)-1):
+            trip = (cities[i], cities[i+1])
+
+            if trip in self.edges:
+                cost += self.edges[trip]
+            else:
+                return None
+        
+        return cost
 
 
     def __str__(self):
