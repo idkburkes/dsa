@@ -34,6 +34,10 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 - Arguments: Node
 - Return: A collection of nodes in the order they were visited using BFS traversal.
 
+```business_trip(cities)```
+- Arguments: graph, array of city names
+- Return: cost or null
+
 
 ## Structure and Testing
 
@@ -49,3 +53,15 @@ Write tests to prove the following functionality:
 - The proper size is returned, representing the number of nodes in the graph
 -  A graph with only one node and edge can be properly returned
 - An empty graph properly returns null
+
+
+# Code Challenge 37 - Graph "Business Trip"
+
+![weighted_graph](./weighted_graph.png)
+
+| Input | 	Output | 
+| --- | --- |
+| [Metroville, Pandora, ]	| $82 |
+| [Arendelle, New Monstropolis, Naboo] | $115 |
+| [Naboo, Pandora]	| $0 |
+| [Narnia, Arendelle, Naboo] | $0 |
