@@ -38,6 +38,9 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 - Arguments: graph, array of city names
 - Return: cost or null
 
+```depth_first(node)```
+- Arguments: node
+- Return: A collection of nodes in the order they were visited using DFS traversal.
 
 ## Structure and Testing
 
@@ -65,3 +68,9 @@ Write tests to prove the following functionality:
 | [Arendelle, New Monstropolis, Naboo] | $115 |
 | [Naboo, Pandora]	| $0 |
 | [Narnia, Arendelle, Naboo] | $0 |
+
+# Code Challenge 38 - Graph depth-first search
+
+![dfs_graph](./dfs_graph.png)
+
+Output: [A, B, C, G, D, E, H, F]

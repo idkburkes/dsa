@@ -120,9 +120,12 @@ def test_business_trip_3_cities_trip_not_possible(weighted_graph):
     expected = None
     assert actual == expected
 
-
-
-
+def test_depth_first(sample_graph2):
+    actual = sample_graph2.depth_first('A')
+    expected = ['A','B','C','G','D','E','H','F']
+    print(actual)
+    print(expected)
+    assert actual == expected
 
 
 
@@ -148,6 +151,29 @@ def sample_graph():
     graph.add_edge('monstropolis', 'naboo')
     graph.add_edge('naboo', 'narnia')
     
+    return graph
+
+@pytest.fixture
+def sample_graph2():
+    graph = Graph()
+
+    graph.add_node('A')
+    graph.add_node('B')
+    graph.add_node('C')
+    graph.add_node('D')
+    graph.add_node('E')
+    graph.add_node('F')
+    graph.add_node('G')
+    graph.add_node('H')
+
+    graph.add_edge('A', 'B')
+    graph.add_edge('A', 'D')
+    graph.add_edge('B', 'C')
+    graph.add_edge('C', 'G')
+    graph.add_edge('D', 'E')
+    graph.add_edge('D', 'H')
+    graph.add_edge('D', 'F')
+
     return graph
 
 @pytest.fixture
